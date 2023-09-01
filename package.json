@@ -1,0 +1,35 @@
+{
+  "name": "a-ui-library",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "scripts": {
+    "prebuild": "npm run clean",
+    "clean": "rimraf dist",
+    "build": "tsc",
+    "postbuild": "npm run copy:assets",
+    "copy:assets": "npm run copy:resources && npm run copy:css && npm run copy:dts",
+    "copy:resources": "xcopy /s /e /i /h /y src\\css dist\\css",
+    "copy:css": "cd src && xcopy /s /e /i /h /y /q *.css ..\\dist",
+    "copy:dts": "cd src && xcopy /s /e /i /h /y /q *.d.ts ..\\dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/react": "^18.2.21",
+    "clsx": "^2.0.0",
+    "next": "^13.4.19",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rimraf": "^3.0.2",
+    "ts-loader": "^9.4.4",
+    "typescript": "^5.2.2"
+  },
+  "peerDependencies": {
+    "next": "*",
+    "react": "*",
+    "react-dom": "*"
+  }
+}
